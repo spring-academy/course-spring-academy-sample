@@ -1,0 +1,12 @@
+{
+  "id": "spring-academy-sample-course-article",
+  "slug": "article",
+  "title": "Example Article Lesson",
+  "status": "live",
+  "type": "article",
+  "duration": 300,
+  "entitlements": [],
+  "settings": {
+    "manualCompletion": true
+  }
+}

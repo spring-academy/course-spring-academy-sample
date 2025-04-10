@@ -1,0 +1,7 @@
+name: More Hands-On Learning
+modules:
+  activate:
+    - 01-overview
+    - 02-second-page
+    - 03-page-n
+    - 04-summary

@@ -1,0 +1,12 @@
+{
+  "id": "spring-academy-sample-course-spring-boot-compose",
+  "slug": "spring-boot-compose",
+  "title": "Lab: Spring Boot Docker Compose Sample",
+  "status": "live",
+  "type": "lab",
+  "duration": 300,
+  "settings": {
+    "educates": "spr-sample-spring-boot-docker-compose",
+    "manualCompletion": true
+  }
+}

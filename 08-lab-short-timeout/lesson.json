@@ -1,0 +1,12 @@
+{
+  "id": "spring-academy-sample-course-short-timeout",
+  "slug": "short-timeout",
+  "title": "Lab: Shortened Timeout",
+  "status": "live",
+  "type": "lab",
+  "duration": 300,
+  "settings": {
+    "educates": "spr-sample-short-timeout",
+    "manualCompletion": true
+  }
+}

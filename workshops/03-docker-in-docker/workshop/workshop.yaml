@@ -1,0 +1,4 @@
+name: Docker in Docker
+modules:
+  activate:
+    - 01-docker-compose

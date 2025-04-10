@@ -1,0 +1,12 @@
+{
+  "id": "spring-academy-sample-course-hugo",
+  "slug": "hugo",
+  "title": "Lab: Working with Hugo Content",
+  "status": "live",
+  "type": "lab",
+  "duration": 300,
+  "settings": {
+    "educates": "spr-sample-hugo",
+    "manualCompletion": true
+  }
+}

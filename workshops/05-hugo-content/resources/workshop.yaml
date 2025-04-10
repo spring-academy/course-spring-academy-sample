@@ -1,0 +1,32 @@
+apiVersion: training.educates.dev/v1beta1
+kind: Workshop
+metadata:
+  name: "spr-sample-hugo"
+spec:
+  title: "Hugo Content"
+  description: "Show off Spring Academy Rendering Features."
+  workshop:
+    files:
+    - image:
+        url: "$(image_repository)/course-spring-academy-sample-files:$(workshop_version)"
+      includePaths:
+      - workshops/05-hugo-content/workshop/**
+      newRootPath: workshops/05-hugo-content
+  request:
+    parameters:
+    - name: USER_DOMAIN
+      value: "unknown.domain"
+    - name: USER_EMAIL
+      value: "somebody@unknown.domain"
+  session:
+    namespaces:
+      budget: medium
+    applications:
+      terminal:
+        enabled: true
+        layout: split
+      editor:
+        enabled: true
+    dashboards:
+      - name: Editor
+      - name: Terminal

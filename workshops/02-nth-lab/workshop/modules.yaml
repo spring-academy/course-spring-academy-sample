@@ -1,0 +1,13 @@
+modules:
+  01-overview:
+    name: "Overview of this Lab"
+    exit_sign: Continue
+  02-second-page:
+    name: "Topical title here"
+    exit_sign: Continue
+  03-page-n:
+    name: "Next step here"
+    exit_sign: Continue
+  04-summary:
+    name: "Summary"
+    exit_sign: Finish

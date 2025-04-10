@@ -1,0 +1,58 @@
+apiVersion: training.educates.dev/v1beta1
+kind: Workshop
+metadata:
+  name: spr-sample-spring-boot-docker-compose
+spec:
+  title: Spring Boot Docker Compose Example
+  description: "Spring Boot Docker Compose Example"
+  workshop:
+    image: jdk17-environment:*
+    files:
+      - image:
+          url: $(image_repository)/course-spring-academy-sample-files:$(workshop_version)
+        includePaths:
+          - workshops/07-spring-boot-docker-compose/workshop/**
+        newRootPath: workshops/07-spring-boot-docker-compose
+      - path: .local/share/code-server
+        image:
+          url: ghcr.io/spring-academy/vscode-java-tools-$(platform_arch)-files:0.25.14
+      - path: exercises
+        git:
+          url: https://github.com/robertmcnees/graphql-part1
+          ref: main
+        newRootPath: .
+  request:
+    parameters:
+    - name: USER_DOMAIN
+      value: "unknown.domain"
+    - name: USER_EMAIL
+      value: "somebody@unknown.domain"
+  session:
+    namespaces:
+      budget: medium
+      security:
+        policy: baseline
+        rules:
+          exclude:
+            - no-localhost-service
+            - restrict-nodeport
+    resources:
+      memory: 2Gi
+    applications:
+      terminal:
+        enabled: true
+        layout: default
+      editor:
+        enabled: true
+      docker:
+        enabled: true
+        storage: 2Gi
+        memory: 2Gi
+        socket:
+          enabled: true
+    ingresses:
+      - name: graphql-music
+        port: 8080
+    dashboards:
+      - name: Editor
+      - name: Terminal

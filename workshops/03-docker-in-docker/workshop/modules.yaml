@@ -1,0 +1,4 @@
+modules:
+  01-docker-compose:
+    name: "Docker Compose in Labs"
+    exit_sign: finish

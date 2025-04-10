@@ -1,0 +1,12 @@
+{
+  "id": "spring-academy-sample-course-docker-in-docker",
+  "slug": "docker-in-docker",
+  "title": "Lab: Docker In Docker with Docker Compose",
+  "status": "live",
+  "type": "lab",
+  "duration": 300,
+  "settings": {
+    "educates": "spr-sample-docker-in-docker",
+    "manualCompletion": true
+  }
+}

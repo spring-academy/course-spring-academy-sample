@@ -1,0 +1,59 @@
+apiVersion: training.educates.dev/v1beta1
+kind: Workshop
+metadata:
+  name: spr-sample-multi-terms
+spec:
+  title: This is Sample Course Lab with Multiple Terminals
+  description: "Multiple Terminals, fun!"
+  duration: "60m"
+  workshop:
+    image: jdk17-environment:*
+    packages:
+      - name: spring-academy-lab
+        files:
+          - image:
+              url:
+                ghcr.io/spring-academy/spring-academy-extension-packages/spring-academy-lab
+              tagSelection:
+                semver:
+                  constraints: ">=1.0.0 <2.0.0"
+    files:
+      - image: # Note: format is {repository-name}-files
+          url: $(image_repository)/course-spring-academy-sample-files:$(workshop_version)
+        includePaths:
+          - /workshops/04-multiple-terminals/workshop/**
+        newRootPath: workshops/04-multiple-terminals
+      - path: .local/share/code-server
+        image:
+          url: ghcr.io/spring-academy/vscode-java-tools-$(platform_arch)-files:0.25.14
+      - path: exercises
+        git:
+          url: https://github.com/spring-academy/course-spring-academy-sample-code
+          ref: main
+        newRootPath: .
+  request:
+    parameters:
+    - name: USER_DOMAIN
+      value: "unknown.domain"
+    - name: USER_EMAIL
+      value: "somebody@unknown.domain"
+  session:
+    namespaces:
+      budget: medium
+      security:
+        policy: baseline
+        rules:
+          exclude:
+            - no-localhost-service
+            - restrict-nodeport
+    resources:
+      memory: 2Gi
+    ingresses:
+      - name: webapp-public
+        port: 8080
+    applications:
+      terminal:
+        enabled: true
+        layout: split
+      editor:
+        enabled: true

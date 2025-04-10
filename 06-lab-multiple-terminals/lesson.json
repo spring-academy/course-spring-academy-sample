@@ -1,0 +1,12 @@
+{
+  "id": "spring-academy-sample-course-multi-terms",
+  "slug": "multi-terms",
+  "title": "Lab: Working with Multiple Terminals",
+  "status": "live",
+  "type": "lab",
+  "duration": 300,
+  "settings": {
+    "educates": "spr-sample-multi-terms",
+    "manualCompletion": true
+  }
+}

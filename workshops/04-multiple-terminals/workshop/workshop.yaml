@@ -1,0 +1,4 @@
+name: "Name in Workshop.Yaml file"
+modules:
+  activate:
+    - 01-overview

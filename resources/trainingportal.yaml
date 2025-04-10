@@ -1,0 +1,41 @@
+apiVersion: training.educates.dev/v1beta1
+kind: TrainingPortal
+metadata:
+  name: spr-sample
+spec:
+  portal:
+    registration:
+      type: anonymous
+    updates:
+      workshop: true
+    sessions:
+      maximum: 10
+  workshops:
+    - name: spr-sample-first-lab
+      expires: 60m
+      orphaned: 5m
+      reserved: 0
+    - name: spr-sample-nth-lab
+      expires: 60m
+      orphaned: 5m
+      reserved: 0
+    - name: spr-sample-docker-in-docker
+      expires: 60m
+      orphaned: 5m
+      reserved: 0
+    - name: spr-sample-multi-terms
+      expires: 60m
+      orphaned: 5m
+      reserved: 0
+    - name: spr-sample-hugo
+      expires: 60m
+      orphaned: 5m
+      reserved: 0
+    - name: spr-sample-short-timeout
+      expires: 3m
+      reserved: 0
+      deadline: 5m
+    - name: spr-sample-spring-boot-docker-compose
+      expires: 60m
+      orphaned: 5m
+      reserved: 0

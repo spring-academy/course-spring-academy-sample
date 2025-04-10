@@ -1,0 +1,12 @@
+{
+  "id": "spring-academy-sample-course-nth-lab",
+  "slug": "nth-lab",
+  "title": "The Nth Lab",
+  "status": "live",
+  "type": "lab",
+  "duration": 300,
+  "settings": {
+    "educates": "spr-sample-nth-lab",
+    "manualCompletion": true
+  }
+}

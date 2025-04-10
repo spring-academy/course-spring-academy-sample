@@ -1,0 +1,76 @@
+apiVersion: training.educates.dev/v1beta1
+kind: Workshop
+metadata:
+  name: spr-sample-docker-in-docker
+spec:
+  title: Using Docker Compose in Labs
+  description: "This lab demonstrates how to configure docker containers in labs, such as postgres."
+  duration: "60m"
+  workshop:
+    image: jdk17-environment:*
+    packages:
+      - name: spring-academy-lab
+        files:
+          - image:
+              url:
+                ghcr.io/spring-academy/spring-academy-extension-packages/spring-academy-lab
+              tagSelection:
+                semver:
+                  constraints: ">=1.0.0 <2.0.0"
+    files:
+      - image: # Note: format is {REPOSITORY_NAME}-files, where REPOSITORY_NAME is defined in Makefile
+          url: $(image_repository)/course-spring-academy-sample-files:$(workshop_version)
+        includePaths:
+          - /workshops/03-docker-in-docker/workshop/**
+        newRootPath: workshops/03-docker-in-docker
+      - path: .local/share/code-server
+        image:
+          url: ghcr.io/spring-academy/vscode-java-tools-$(platform_arch)-files:0.25.14
+      - path: exercises
+        git:
+          url: https://github.com/spring-academy/course-spring-academy-sample-code
+          ref: main
+        newRootPath: .
+  request:
+    parameters:
+    - name: USER_DOMAIN
+      value: "unknown.domain"
+    - name: USER_EMAIL
+      value: "somebody@unknown.domain"
+  session:
+    env:
+      - name: LESSON_LABEL
+        value: nth-lab-start
+    namespaces:
+      budget: medium
+    resources:
+      memory: 2Gi
+    applications:
+      terminal:
+        enabled: true
+        layout: default
+      editor:
+        enabled: true
+      docker:
+        enabled: true
+        storage: 500Mi
+        socket:
+          # you must have this to enable docker ps, etc.
+          enabled: true
+        compose:
+          services:
+            postgres-workshop:
+              image: postgres:14.1-alpine
+              container_name: postgres
+              ports:
+                - "127.0.0.1:5432:5432"
+              environment:
+                - POSTGRES_USER=postgres
+                - POSTGRES_PASSWORD=postgres
+              volumes:
+                - type: volume
+                  source: workshop
+                  target: /mnt
+    dashboards:
+      - name: Editor
+      - name: Terminal

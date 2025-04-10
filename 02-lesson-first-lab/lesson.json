@@ -1,0 +1,12 @@
+{
+  "id": "spring-academy-sample-course-first-lab",
+  "slug": "first-lab",
+  "title": "The First Lab",
+  "status": "live",
+  "type": "lab",
+  "duration": 300,
+  "settings": {
+    "educates": "spr-sample-first-lab",
+    "manualCompletion": true
+  }
+}

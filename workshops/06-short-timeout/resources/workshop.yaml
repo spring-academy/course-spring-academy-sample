@@ -1,0 +1,29 @@
+apiVersion: training.educates.dev/v1beta1
+kind: Workshop
+metadata:
+  name: "spr-sample-short-timeout"
+spec:
+  title: "Short Lab Timeout"
+  description: "A sample course with a short lab timeout"
+  workshop:
+    files:
+    - image:
+        url: "$(image_repository)/course-spring-academy-sample-files:$(workshop_version)"
+      includePaths:
+      - workshops/06-short-timeout/workshop/**
+      newRootPath: workshops/06-short-timeout
+  request:
+    parameters:
+    - name: USER_DOMAIN
+      value: "unknown.domain"
+    - name: USER_EMAIL
+      value: "somebody@unknown.domain"
+  session:
+    namespaces:
+      budget: medium
+    applications:
+      terminal:
+        enabled: true
+        layout: split
+      editor:
+        enabled: true
