@@ -2,7 +2,7 @@
   "id": "spring-academy-sample-course",
   "slug": "spring-academy-sample-course",
   "title": "Spring Academy Sample Course",
-  "status": "draft",
+  "status": "unlisted",
   "order": 1,
   "level": "beginner",
   "topics": ["java", "testing"],
