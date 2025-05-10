@@ -20,4 +20,4 @@ jobs:
       - name: Publish Workshops
         uses: spring-academy/spring-academy-github-actions/publish-workshop@v6
         with:
-          token: ${{secrets.GHCR_TOKEN}}
+          token: ${{secrets.GITHUB_TOKEN}}
