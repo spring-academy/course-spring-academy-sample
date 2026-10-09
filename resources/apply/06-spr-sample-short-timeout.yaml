@@ -1,0 +1,42 @@
+apiVersion: training.educates.dev/v1beta1
+kind: Workshop
+metadata:
+  name: "spr-sample-short-timeout"
+spec:
+  title: "Short Lab Timeout"
+  description: "A sample course with a short lab timeout"
+  workshop:
+    files:
+    - http:
+        url: "$(ingress_protocol)://$(assets_repository)/$(workshop_name).tar.gz"
+      includePaths:
+        - /workshop/**
+  request:
+    parameters:
+    - name: USER_DOMAIN
+      value: "unknown.domain"
+    - name: USER_EMAIL
+      value: "somebody@unknown.domain"
+  session:
+    env:
+      - name: LAB_VERSION
+        value: "${VERSION}"
+      - name: WEBSERVER
+        value: "$(ingress_protocol)://$(assets_repository)"
+    namespaces:
+      budget: medium
+    applications:
+      terminal:
+        enabled: true
+        layout: split
+      editor:
+        enabled: true
+  environment:
+    assets:
+      memory: 0Mi
+      ingress:
+        enabled: true
+      files:
+        - image:
+            url: ${CONTAINER_REGISTRY}${CONTAINER_REPOSITORY}:${VERSION}
+          newRootPath: usr/share/nginx/html
