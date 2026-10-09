@@ -1,0 +1,8 @@
+DIR_LAB               = lab
+NAME                  = course-spring-academy-sample
+IMAGE_SOURCE          = https://github.com/spring-academy/course-spring-academy-sample
+CONTAINER_REGISTRY    = 
+CONTAINER_REPOSITORY  = course-spring-academy-sample
+version               = latest
+
+env                   = local
